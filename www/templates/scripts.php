@@ -1,5 +1,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="../js/mustache.min.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/v3.1.0/mapbox.js'></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('div[data-template]').each(function(){

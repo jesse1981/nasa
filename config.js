@@ -47,4 +47,4 @@ try {
 parsedEnvConfig.env = env;
 
 // we merge the 2 objects
-//module.exports = _.merge(parsedCommonConfig, parsedEnvConfig);
+module.exports = Object.assign(parsedCommonConfig, parsedEnvConfig);

@@ -4,6 +4,7 @@
 var conf = require('./config.js');
 
 var SimpleLog = require('./util/simpleLog.js');
+//var db = require('./service/db.js')
 var logFactory = new SimpleLog(conf.logLevel);
 
 /*
@@ -47,7 +48,7 @@ app.use(expressValidator());
 
 app.get('/', function(req, res) {
     
-    res.send("This test works.");
+    res.send(conf.database.host);
     
 });
 app.post('/nab/test', function(req, res) {
@@ -58,6 +59,6 @@ app.post('/nab/test', function(req, res) {
 });
 
 //conf.http.port  = 80; //process.env.PORT;
-log.info("Listening on port " + "80"); //conf.http.port);
+log.info("Listening on port " + conf.http.port);
 
-app.listen(80); //conf.http.port);
+app.listen(conf.http.port);
