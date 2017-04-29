@@ -1,6 +1,6 @@
 {
     "http": {
-        "port": 8000
+        "port": 80
     },
     "logLevel": "debug",
     "database": {
