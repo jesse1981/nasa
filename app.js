@@ -33,11 +33,31 @@ app.get('/', function(req, res) {
     //db.bar();
     var query = "SELECT * FROM test";
     db.query(query,function(result){
+        res.setHeader('content-type',' text/json');
         res.send(JSON.stringify(result));
     });
 });
-app.post('/nab/test', function(req, res) {
+app.post('/data', function(req, res) {
+    console.log(req.body);
+    res.header('Access-Control-Allow-Origin','*');
     
+    // Request methods you wish to allow
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.header('Access-Control-Allow-Credentials', true);
+    
+    // Website you wish to allow to connect
+    res.header('content-type',' text/json');
+    var test = {
+        name: "jesse",
+        age: 35
+    };
+    res.send(JSON.stringify(test));
 });
 
 //conf.http.port  = 80; //process.env.PORT;
