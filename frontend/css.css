@@ -8,30 +8,45 @@ body {
     padding: 0;
 }
 
-
 .overlay {
     fill: none;
     pointer-events: all;
 }
 
 .sidePanel {
-    background: grey;
     height: 100vh;
 }
 
 .mapPanel {
-    background: grey;
     height: 100%;
+    width: 100%;
 }
 
 .statsPanel {
-
-    background: grey;
     height: 100%;
 }
 
 .MainContainer {
-    padding: 3em;
-    background-color: white;
+    padding: 2em;
+    background-color: #D8D8D8;
     height: 100vh;
+}
+
+.timePanel{
+  height: 50%;
+}
+
+.dropshadow .col-12 .timePanel{
+  padding:0px !important;
+}
+
+.dropshadow {
+    -webkit-box-shadow: -1px 1px 5px 0px rgba(42, 47, 56, 0.2);
+    -moz-box-shadow: -1px 1px 5px 0px rgba(42, 47, 56, 0.2);
+    box-shadow: -1px 1px 5px 0px rgba(42, 47, 56, 0.2);
+}
+
+.carousel-inner, .carousel-item {
+  height: 100%;
+  width: 100%;
 }
