@@ -14,9 +14,7 @@ var options = {
     displayLogo: false, // this one also seems to not work
     displayModeBar: false, //this one does work
 };
-<<<<<<< HEAD
-var plot = Plotly.newPlot('myDiv', data, layout, options);
-=======
+
 Plotly.newPlot('myDiv', data, layout, options);
 
 $("button").click(function() {
@@ -52,4 +50,3 @@ function helloWorld() {
         }
     });
 }
->>>>>>> a79f464801280df6ddced306bda2f6ceef8218e3
