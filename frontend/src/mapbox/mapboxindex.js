@@ -4,6 +4,11 @@ function createFloodMapBox() {
 
     // used to be imagedata.js
     function imageDataWorker() {
+        function getAlpha(height, seaLevel) {
+            return Math.abs(height) / seaLevel * 255;
+            return (- ((height / 14.7) - 255)) - 20;
+        }
+
         //Listen for events
         self.addEventListener('message', function (e) {
             // Tile Data Holder
@@ -13,35 +18,40 @@ function createFloodMapBox() {
             // obect to hold various methods based on message to worker
             var edgeFind = {
                 // If tile data was sent, add to data object
-                tiledata: function (inTile) {
+                tiledata: function (data) {
                     var dataArray = new Float32Array(65536);
-                    for (var i = 0; i < inTile.array.length / 4; i++) {
-                        var height = -10000 + ((inTile.array[i * 4] * 256 * 256 + inTile.array[i * 4 + 1] * 256 + inTile.array[i * 4 + 2]) * 0.1);
+                    for (var i = 0; i < data.array.length / 4; i++) {
+                        var height = -10000 + ((data.array[i * 4] * 256 * 256 + data.array[i * 4 + 1] * 256 + data.array[i * 4 + 2]) * 0.1);
 
-                        if (height > inTile.heightLevel) {
-                            alphaMultiplier = 0; //(- ((height / 14.7) - 255)) - 20;
-                        } else {
-                            alphaMultiplier = 255;
+                        // if height is higher than sea level
+                        // don't draw the water, alpha = 0
+                        if (height > data.seaLevel) {
+                            alphaMultiplier = 0; //getAlpha(height);
+                        } else { // if lower, draw the water
+                            alphaMultiplier = Math.min(
+                                getAlpha(height - data.seaLevel, data.seaLevel) ,
+                                230
+                            );
                         }
 
-                        inTile.array[i * 4] = 66;
-                        inTile.array[i * 4 + 1] = 134;
-                        inTile.array[i * 4 + 2] = 244;
-                        inTile.array[i * 4 + 3] = alphaMultiplier;
+                        data.array[i * 4] = data.red;
+                        data.array[i * 4 + 1] = data.green;
+                        data.array[i * 4 + 2] = data.blue;
+                        data.array[i * 4 + 3] = alphaMultiplier;
 
                         dataArray[i] = height;
                     }
                     self.postMessage({
                         'data': {
-                            'tileUID': inTile.tileUID,
-                            'array': inTile.array
+                            'tileUID': data.tileUID,
+                            'array': data.array
                         },
                         'type': 'tiledata'
                     },
-                        [inTile.array.buffer]
+                        [data.array.buffer]
                     );
-                    delete inTile.array;
-                    tileData[inTile.tileUID] = dataArray;
+                    delete data.array;
+                    tileData[data.tileUID] = dataArray;
                 },
 
                 // If a tile unload event was sent, delete the corresponding data
@@ -61,27 +71,48 @@ function createFloodMapBox() {
 
     }
 
+    // copied from https://gist.github.com/SunboX/5849664
+    function setupWebWorker() {
+        var code = imageDataWorker.toString();
+        code = code.substring(code.indexOf("{") + 1, code.lastIndexOf("}"));
+
+        var blob = new Blob([code], { type: "application/javascript" });
+        return new Worker(URL.createObjectURL(blob));
+    }
+
     let config = {
-        heightLevel: 50,
+        seaLevel: 50,
+        red: 66,
+        green: 134,
+        blue: 244
     };
 
-    let elevTiles;
+    let elevTilesLayer;
+    let baseLayer;
 
     function setConfig(key, value) {
         if (key in config) {
             config[key] = value;
+            return true;
         }
+
+        return false;
     }
 
     function update() {
-        if (elevTiles) {
-            elevTiles.redraw();
+        if (elevTilesLayer) {
+            elevTilesLayer.redraw();
         }
     }
 
-    function updateHeight(height) {
-        setConfig('heightLevel', height);
-        update();
+    function updateConfig(key, value) {
+        if (setConfig(key, value)) {
+            update();
+        }
+    }
+
+    function updateSeaLevel(height) {
+        updateConfig('seaLevel', height);
     }
 
     function _init() {
@@ -101,25 +132,17 @@ function createFloodMapBox() {
         //var hash = L.hash(map);
 
         // L.mapbox.tileLayer('').addTo(map);
-        L.mapbox.tileLayer('mapbox.streets').addTo(map);
+        baseLayer = L.mapbox.tileLayer('mapbox.streets').addTo(map);
 
-        elevTiles = new L.TileLayer.Canvas({
+        elevTilesLayer = new L.TileLayer.Canvas({
             unloadInvisibleTiles: true,
             attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
         });
 
-        elevTiles.on('tileunload', function (e) {
+        elevTilesLayer.on('tileunload', function (e) {
             //Send tile unload data to elevWorker to delete un-needed pixel data
             elevWorker.postMessage({ 'data': e.tile._tilePoint.id, 'type': 'tileunload' });
         });
-
-        function setupWebWorker() {
-            var code = imageDataWorker.toString();
-            code = code.substring(code.indexOf("{") + 1, code.lastIndexOf("}"));
-
-            var blob = new Blob([code], { type: "application/javascript" });
-            return new Worker(URL.createObjectURL(blob));
-        }
 
         var elevWorker = setupWebWorker();
         var tileContextsElev = {};
@@ -143,7 +166,7 @@ function createFloodMapBox() {
             type: 'setfilter'
         });
 
-        elevTiles.drawTile = function (canvas, tile, zoom) {
+        elevTilesLayer.drawTile = function (canvas, tile, zoom) {
             tileSize = this.options.tileSize;
 
             var context = canvas.getContext('2d'),
@@ -164,17 +187,17 @@ function createFloodMapBox() {
                 // Get Image Data
                 var imageData = context.getImageData(0, 0, tileSize, tileSize);
 
+                var dataObj = Object.assign({
+                    tileUID: tileUID,
+                    tileSize: tileSize,
+                    array: imageData.data,
+                    drawElev: drawElev
+                }, config);
+
                 elevWorker.postMessage({
-                    data: {
-                        tileUID: tileUID,
-                        tileSize: tileSize,
-                        array: imageData.data,
-                        drawElev: drawElev,
-                        heightLevel: config.heightLevel,
-                    },
+                    data: dataObj,
                     type: 'tiledata'
-                },
-                    [imageData.data.buffer]);
+                }, [imageData.data.buffer]);
             };
 
             // Source of image tile
@@ -191,7 +214,7 @@ function createFloodMapBox() {
             }
         }, false);
 
-        elevTiles.addTo(map);
+        elevTilesLayer.addTo(map);
 
         map.touchZoom.disable();
         map.doubleClickZoom.disable();
@@ -202,7 +225,7 @@ function createFloodMapBox() {
     return {
         setConfig,
         update,
-        updateHeight
+        updateSeaLevel
     };
 }
 
