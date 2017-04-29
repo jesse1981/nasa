@@ -13,14 +13,16 @@ body {
     pointer-events: all;
 }
 
-.sidePanel {
-    background: AliceBlue;
+.sidebar {
     height: 100vh;
-    border-style: Dotted;
-    border-width: 5px;
-    border-color: LawnGreen;
-    font-style: Normal; 
-    font-size: 20px;
+    position: absolute;
+    left: -300px;
+    z-index: 1001;
+    width: 300px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    background: AliceBlue;    
+    font-size: 20px;    
 }
 
 .mapPanel {
@@ -37,6 +39,7 @@ body {
     padding: 3em;
     background-color: White;
     height: 100vh;
+    position: relative;
 }
 
 .perspectiveGridFileTileSize {
@@ -61,4 +64,28 @@ background: Black;
 .carousel-inner, .carousel-item {
   height: 100%;
   width: 100%;
+}
+
+.sidebar-toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar-toggle button {
+    width: 100px;
+    height: 100px;
+}
+
+.toggled .sidebar-toggle {
+    left: 300px;
+}
+
+.toggled .sidebar {
+    left: 0; 
+}
+
+.container-fluid {
+    padding: 0;
 }
