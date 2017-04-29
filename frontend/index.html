@@ -6,17 +6,18 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
     <link rel='stylesheet' href='//www.mapbox.com/base/latest/base.css'>
     <link rel="stylesheet" href="css.css">
 </head>
 
 <body>
     <div class="container-fluid row">
-        <div class="col-md-3 col-12 sidePanel">
+        <div class="col-md-2 col-12 sidePanel">
             Hello From the side panel
         </div>
-        <div class="col-md-9 col-12 MainContainer">
+        <div class="col-md-10 col-12 MainContainer">
             <div class="row">
                 <div id='map_canvas' class='mapPanel col-md-6 col-12 dropshadow'>
                 </div>
@@ -33,13 +34,13 @@
                                 </ol>
                                 <div class="carousel-inner" role="listbox">
                                     <div class="carousel-item active">
-                                        <img class="img-fluid" src="http://concordiansaverainforest.org/wp-content/uploads/2016/03/rainforest1.jpg" alt="First slide">
+                                        <img class="img-fluid" src="http://placehold.it/1600x900" alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="img-fluid" src="http://concordiansaverainforest.org/wp-content/uploads/2016/03/rainforest1.jpg" alt="Second slide">
+                                        <img class="img-fluid" src="http://placehold.it/1600x900" alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="img-fluid" src="http://concordiansaverainforest.org/wp-content/uploads/2016/03/rainforest1.jpg" alt="Third slide">
+                                        <img class="img-fluid" src="http://placehold.it/1600x900" alt="Third slide">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -57,10 +58,15 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-   <script type="text/javascript" src="./src/mapbox/mapboxindex.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./src/mapbox/mapboxindex.js"></script>
+    <script src="plotly-latest.min.js"></script>
+    <script type="text/javascript" src="./stats.js"></script>
 </body>
 
 </html>
