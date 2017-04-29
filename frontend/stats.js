@@ -15,4 +15,4 @@ var options = {
 	displayLogo: false, // this one also seems to not work
 	displayModeBar: false, //this one does work
 };
-Plotly.newPlot('myDiv', data, layout, options);
+var plot = Plotly.newPlot('myDiv', data, layout, options);

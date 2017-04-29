@@ -16,14 +16,14 @@ body {
 .sidebar {
     height: 100vh;
     position: absolute;
-    left: -300px;
     z-index: 1001;
     width: 300px;
     background-color: #fff;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
     background: AliceBlue;    
     font-size: 20px;
     padding: 0 10px;
+    /*top: -1000px;*/
 }
 
 .mapPanel {
@@ -41,6 +41,7 @@ body {
     background-color: White;
     height: 100vh;
     position: relative;
+    transition: all 0.2s ease-in-out;
 }
 
 .perspectiveGridFileTileSize {
@@ -71,22 +72,36 @@ background: Black;
     position: absolute;
     top: 0;
     left: 0;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    z-index: 1001;
 }
 
 .sidebar-toggle button {
-    width: 100px;
-    height: 100px;
-}
-
-.toggled .sidebar-toggle {
-    left: 300px;
-}
-
-.toggled .sidebar {
-    left: 0; 
+    width: 50px;
+    height: 50px;
 }
 
 .container-fluid {
     padding: 0;
 }
+
+/*@media screen and (min-width: 321px) {*/
+    .sidebar {
+        top: 0;
+        left: -300px;
+    }
+
+    .toggled .sidebar-toggle {
+        left: 275px;
+    }
+
+    .toggled .sidebar {
+        left: 0; 
+    }
+
+    .toggled .MainContainer {
+        margin-left: 300px;
+        width: calc(100% - 300px);
+    }
+        
+/*}*/
