@@ -1,0 +1,28 @@
+{
+  "name": "nasa",
+  "version": "1.0.0",
+  "description": "Water water everywhere!",
+  "main": "app.js",
+  "dependencies": {
+    "async": "^2.3.0",
+    "body-parser": "^1.17.1",
+    "csv-parse": "^1.2.0",
+    "express": "^4.15.2",
+    "express-validator": "^3.2.0",
+    "mysql": "^2.13.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesse1981/nasa.git"
+  },
+  "author": "Jesse Bryant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jesse1981/nasa/issues"
+  },
+  "homepage": "https://github.com/jesse1981/nasa#readme"
+}
