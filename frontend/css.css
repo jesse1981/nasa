@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    margin: 0;
+    padding: 0;
+}
+
+
+.overlay {
+    fill: none;
+    pointer-events: all;
+}
+
+.sidePanel {
+    background: grey;
+    height: 100vh;
+}
+
+.mapPanel {
+    background: grey;
+    height: 100%;
+}
+
+.statsPanel {
+
+    background: grey;
+    height: 100%;
+}
+
+.MainContainer {
+    padding: 3em;
+    background-color: white;
+    height: 100vh;
+}

@@ -23,7 +23,7 @@ self.addEventListener('message', function (e) {
             for (var i = 0; i < inTile.array.length / 4; i++) {
                 var height = -10000 + ((inTile.array[i * 4] * 256 * 256 + inTile.array[i * 4 + 1] * 256 + inTile.array[i * 4 + 2]) * 0.1);
 
-                if (height > 500) {
+                if (height > 5) {
                     alphaMultiplier = 0; //(- ((height / 14.7) - 255)) - 20;
                 } else {
                     alphaMultiplier = 255;

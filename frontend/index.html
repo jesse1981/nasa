@@ -1,39 +1,37 @@
-
 <html>
-  <head>
+
+<head>
     <meta charset='UTF-8'>
     <title>Hillshade from terrain-rgb: mapbox.js</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui' />
-    <link rel='stylesheet' href='//www.mapbox.com/base/latest/base.css'>
-    <style>
-      body {
-        margin:0;
-        padding:0;
-      }
-      #map {
-        margin: 0;
-        padding: 0;
-        width:100%;
-        height:100%;
-      }
-      .maphold {
-        width: 100%;
-      }
-      .overlay {
-        fill: none;
-        pointer-events: all;
-      }
-    </style>
-    </head>
-  <body>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel='stylesheet' href='//www.mapbox.com/base/latest/base.css'>
+    <link rel="stylesheet" href="css.css">
+</head>
 
-    <div id='map_canvas' class='maphold pin-left'></div>
+<body>
+    <div class="container-fluid row">
+        <div class="col-md-3 col-12 sidePanel">
+            Hello From the side panel
+        </div>
+        <div class="col-md-9 col-12 MainContainer">
+            <div class="row">
+                <div id='map_canvas' class='mapPanel col-md-6 col-12'>
+                </div>
+                <div class="statsPanel col-md-6 col-12">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script type="text/javascript" src="general-geo-utils.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
-  	</script>
-  </body>
+    </script>
+</body>
+
 </html>
