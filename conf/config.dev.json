@@ -4,10 +4,10 @@
     },
     "logLevel": "debug",
     "database": {
-        "host": "logisofttech.com.au",
-        "database": "logisoft_nasa",
-        "user": "logisoft_nasa",
-        "password": "n45401"
+        "host": "172.19.122.108",
+        "database": "test",
+        "user": "nasauser",
+        "password": "nasa"
     },
     "civica": {
         "host" : "medusa.fairfieldcity.nsw.gov.au",
