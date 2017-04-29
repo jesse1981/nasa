@@ -1,0 +1,31 @@
+{
+    "http": {
+        "port": 8000
+    },
+    "logLevel": "debug",
+    "database": {
+        "host": "127.0.0.1",
+        "database": "acdbDev",
+        "user": "root",
+        "password": ""
+    },
+    "civica": {
+        "host" : "medusa.fairfieldcity.nsw.gov.au",
+        "getLoginURI" : "/iservtrain/logonPrompt.do",
+        "postLoginURI" : "/iservtrain/logon.do",
+        "startURI" : "/iservtrain/start.do",
+        "crmRequestEntryURI": "/iservtrain/crm/Init.do?nodeNum=2628",
+        "crmEntryDetailsURI" : "/iservtrain/crmEntryDetails.do",
+        "crmWorkflowURI": "/iservtrain/crm/workflowTasks.do",
+        "crmPrefURI": "/iservtrain/crm/notPreferenceSearch.do",
+        "crmSubmitURI": "/iservtrain/crmSubmit.do",
+        "crmAttachmentURI": "/iservtrain/addAttachment.do",
+        "crmUpdateURI": "/iservtrain/crm/updateSubmit.do",
+        "crmConfirmationURI": "/iservtrain/crm/confirmation.do",
+        "crmUpdateDetailsURI": "/iservtrain/crm/update.do",
+        "incidentAddressURI": "/iservtrain/crm/propertyDetail.do",
+        "submitAsNar": 9,
+        "username" : "concivica",
+        "password" : "concivica"
+    }
+}
