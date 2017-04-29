@@ -8,7 +8,6 @@ body {
     padding: 0;
 }
 
-
 .overlay {
     fill: none;
     pointer-events: all;
@@ -22,18 +21,14 @@ body {
     border-color: LawnGreen;
     font-style: Normal; 
     font-size: 20px;
-
-
-
 }
 
 .mapPanel {
-    background: grey;
     height: 100%;
+    width: 100%;
 }
 
 .statsPanel {
-
     background: AliceBlue;
     height: 100%;
 }
@@ -41,18 +36,29 @@ body {
 .MainContainer {
     padding: 3em;
     background-color: White;
-
     height: 100vh;
 }
 
 .perspectiveGridFileTileSize {
 background: Black;
 
-
-
 }
 
+.timePanel{
+  height: 50%;
+}
 
+.dropshadow .col-12 .timePanel{
+  padding:0px !important;
+}
 
+.dropshadow {
+    -webkit-box-shadow: -1px 1px 5px 0px rgba(42, 47, 56, 0.2);
+    -moz-box-shadow: -1px 1px 5px 0px rgba(42, 47, 56, 0.2);
+    box-shadow: -1px 1px 5px 0px rgba(42, 47, 56, 0.2);
+}
 
-
+.carousel-inner, .carousel-item {
+  height: 100%;
+  width: 100%;
+}
