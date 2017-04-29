@@ -21,6 +21,8 @@ body {
     width: 300px;
     background-color: #fff;
     transition: all 0.3s ease-in-out;
+    background: AliceBlue;    
+    font-size: 20px;    
 }
 
 .mapPanel {
@@ -29,14 +31,20 @@ body {
 }
 
 .statsPanel {
+    background: AliceBlue;
     height: 100%;
 }
 
 .MainContainer {
-    padding: 2em;
-    background-color: #D8D8D8;
+    padding: 3em;
+    background-color: White;
     height: 100vh;
     position: relative;
+}
+
+.perspectiveGridFileTileSize {
+background: Black;
+
 }
 
 .timePanel{
