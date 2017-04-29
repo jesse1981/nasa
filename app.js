@@ -56,15 +56,6 @@ app.post('/nab/test', function(req, res) {
     
     console.log(result);
 });
-// Function and Algorithms
-
-// Rel_1 = Transaction_Value / Total_expenditure  -- relativize the transaction
-// Rel_2 = Rel_1 * Merchant_Factor -- give that a weight
-// Rel_3 = Sum(Rel_2) -- For each unique Merchant, add all events
-// Then add all those Rel_3's for each bin and multiply them by a bin factor
-// Rel_4 = Sum(Rel_3) * Bin_Factor
-// Final = Sum(Rel_4) -- for all bins, add them
-// We should also normalize the Final, somehow.
 
 //conf.http.port  = 80; //process.env.PORT;
 log.info("Listening on port " + "80"); //conf.http.port);
