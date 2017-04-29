@@ -10,7 +10,7 @@ var map = L.map('map_canvas', {
     worldCopyJump: true,
     doubleClickZoom: false,
     center: [-27.4698, 153.0251],
-    zoom: 15,
+    zoom: 13,
     
 });
 
@@ -114,3 +114,4 @@ function formatElev(elev) {
 function formatTemp(temp) {
     return Math.round(temp) + '° f';
 }
+

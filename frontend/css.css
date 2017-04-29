@@ -15,8 +15,16 @@ body {
 }
 
 .sidePanel {
-    background: grey;
+    background: AliceBlue;
     height: 100vh;
+    border-style: Dotted;
+    border-width: 5px;
+    border-color: LawnGreen;
+    font-style: Normal; 
+    font-size: 20px;
+
+
+
 }
 
 .mapPanel {
@@ -26,12 +34,25 @@ body {
 
 .statsPanel {
 
-    background: grey;
+    background: AliceBlue;
     height: 100%;
 }
 
 .MainContainer {
     padding: 3em;
-    background-color: white;
+    background-color: White;
+
     height: 100vh;
 }
+
+.perspectiveGridFileTileSize {
+background: Black;
+
+
+
+}
+
+
+
+
+
