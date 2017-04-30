@@ -35,7 +35,10 @@ body {
 }
 
 .MainContainer {
-    padding: 3em;
+    padding-top: 1em;
+    padding-left: 2em;
+    padding-bottom: 2em;
+    padding-right: 2em;
     background-color: white;
     height: 100vh;
     position: relative;
@@ -87,7 +90,6 @@ body {
 }
 .insideForm{
     padding-left: 2em;
-    padding-right: 2em;
 }
 
 .Everything{
