@@ -81,7 +81,7 @@ function createFloodMapBox() {
     }
 
     let config = {
-        seaLevel: 50,
+        seaLevel: 0,
         red: 66,
         green: 134,
         blue: 244
