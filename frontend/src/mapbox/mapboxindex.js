@@ -50,13 +50,13 @@ function createFloodMapBox() {
                     },
                         [data.array.buffer]
                     );
-                    devare data.array;
+                    delete data.array;
                     tileData[data.tileUID] = dataArray;
                 },
 
-                // If a tile unload event was sent, devare the corresponding data
+                // If a tile unload event was sent, delete the corresponding data
                 tileunload: function (tileUnloadID) {
-                    devare tileData[tileUnloadID];
+                    delete tileData[tileUnloadID];
                 },
 
                 setfilter: function (elev) {

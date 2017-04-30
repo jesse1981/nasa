@@ -35,6 +35,12 @@ body {
     height: 100%;
 }
 
+.infoPanel {
+    margin-top: 2em;
+    overflow: scroll;
+    min-height: 40vh;
+}
+
 .MainContainer {
     padding-top: 1em;
     padding-left: 2em;
@@ -48,7 +54,7 @@ body {
 
 
 .timePanel {
-    height: 50%;
+    height: 50vh;
     margin-bottom: 5%;
 }
 
@@ -101,9 +107,14 @@ background: #E0EAFC;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to bottom, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to bottom, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
 }
+
+.FormMenu {
+    height: calc(90vh + 2em);
+    overflow: scroll;
+    padding-top: 20px;
+}
+
 @media only screen and (max-width: 992px) {
     .FormMenu{
         max-height: 100vh;
@@ -115,11 +126,11 @@ background: linear-gradient(to bottom, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, 
     .mainRow{
         padding-left: 0;
     }
-    .mapPanel {
+    .mapPanel.mapPanel {
         max-height: 50vh;
         margin-bottom: 2em;
         margin-top: 2em;
-        padding: 0px;
+        padding: 0 !important;
     }
     .timePanel{
         max-height: 100vh;
