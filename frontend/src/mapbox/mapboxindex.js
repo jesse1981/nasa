@@ -82,9 +82,9 @@ function createFloodMapBox() {
 
     var config = {
         seaLevel: 13,
-        red: 66,
-        green: 134,
-        blue: 244
+        red: 115,
+        green: 182,
+        blue: 230
     };
 
     var elevTilesLayer;
