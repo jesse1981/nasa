@@ -1,88 +1,361 @@
 <html>
 
 <head>
-    <meta charset='UTF-8'>
+    <meta charset="utf-8">
     <title>Flood Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-        + crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" + crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel='stylesheet' href='//www.mapbox.com/base/latest/base.css'>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/7.1.0/css/bootstrap-slider.css'>
     <link rel="stylesheet" href="css.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $(function() {
+        // first
+        $("#First").slider({
+            range: "min",
+            value: 0,
+            min: 0,
+            max: 5,
+            slide: function(event, ui) {
+                $("#first").val(ui.value);
+            }
+        });
+        $("#first").val($("#First").slider("value"));
+
+        // second
+        $("#Second").slider({
+            range: "min",
+            value: 0,
+            min: 0,
+            max: 5,
+            slide: function(event, ui) {
+                $("#second").val(ui.value);
+            }
+        });
+        $("#second").val($("#Second").slider("value"));
+
+        // third
+        $("#Third").slider({
+            range: "min",
+            value: 0,
+            min: 0,
+            max: 5,
+            slide: function(event, ui) {
+                $("#third").val(ui.value);
+            }
+        });
+        $("#third").val($("#Third").slider("value"));
+
+        // fourth
+        $("#Fourth").slider({
+            range: "min",
+            value: 0,
+            min: 0,
+            max: 5,
+            slide: function(event, ui) {
+                $("#fourth").val(ui.value);
+            }
+        });
+        $("#fourth").val($("#Fourth").slider("value"));
+
+        // fifth
+        $("#Fifth").slider({
+            range: "min",
+            value: 0,
+            min: 0,
+            max: 5,
+            slide: function(event, ui) {
+                $("#fifth").val(ui.value);
+            }
+        });
+        $("#fifth").val($("#Fifth").slider("value"));
+
+        // sixth
+        $("#Sixth").slider({
+            range: "min",
+            value: 0,
+            min: 0,
+            max: 5,
+            slide: function(event, ui) {
+                $("#sixth").val(ui.value);
+            }
+        });
+        $("#sixth").val($("#Sixth").slider("value"));
+
+        // second
+        $("#Seventh").slider({
+            range: "min",
+            value: 0,
+            min: 0,
+            max: 5,
+            slide: function(event, ui) {
+                $("#seventh").val(ui.value);
+            }
+        });
+        $("#seventh").val($("#Seventh").slider("value"));
+
+        // third
+        $("#Eight").slider({
+            range: "min",
+            value: 0,
+            min: 0,
+            max: 5,
+            slide: function(event, ui) {
+                $("#eight").val(ui.value);
+            }
+        });
+        $("#eight").val($("#Eight").slider("value"));
+
+        // fourth
+        $("#Nineth").slider({
+            range: "min",
+            value: 0,
+            min: 0,
+            max: 5,
+            slide: function(event, ui) {
+                $("#nineth").val(ui.value);
+            }
+        });
+        $("#nineth").val($("#Nineth").slider("value"));
+
+        // // fifth
+        // $("#Tenth").slider({
+        //     range: "min",
+        //     value: 1,
+        //     min: 1,
+        //     max: 5,
+        //     slide: function(event, ui) {
+        //         $("#tenth").val(ui.value);
+        //     }
+        // });
+        // $("#tenth").val($("#Tenth").slider("value"));
+    });
+    </script>
 </head>
 
 <body>
-    <div class="container-app container-fluid">
-        <aside class="sidebar">
-            <p>
-                <h1>Let the Rains Fall</h1>
-            </p>
-            <p>&nbsp;</p>
-            <p> Year </p>
-            <p><input id="perspectiveGridFileTileSize" max="100" min="0" style="width: 100%;" type="range" value="12"></p>
-            <p>Sea Level Rising</p>
-            <p>Temp.</p>
-            <p>Year</p>
-            <p>Cars on Road</p>
-            <p>CO2 Emissions</p>
-            <p>Factor6</p>
-            <p>Factor7</p>
-            <p>Factor8</p>
-            <p>Factor9</p>
-            <p>Factor 10</p>
-        </aside>
-        <main class="col-md-12 col-12 MainContainer">
-            <div class="sidebar-toggle">
-                <button class="navbar-toggle">Toggle</button>
-            </div>
-            <div class="row">
-                <div id='map_canvas' class='mapPanel col-md-6 col-12 dropshadow'>
-                </div>
-                <div class="statsPanel col-md-6 col-12">
-                    <div id="myDiv" class="dropshadow timePanel">
-                    </div>
-                    <div class="col-12 timePanel dropshadow">
+    <div class="container-fluid">
+        <div class="row MainContainer Everything">
+            <div class="col-lg-2 col-12 dropshadow FormMenu">
+                <form>
+                    <div class="form-group insideForm">
+                        <!-- First -->
                         <div class="row">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                </ol>
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="carousel-item active">
-                                        <img class="img-fluid" src="http://placehold.it/1600x900" alt="First slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="img-fluid" src="http://placehold.it/1600x900" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="img-fluid" src="http://placehold.it/1600x900" alt="Third slide">
-                                    </div>
+                            <div class="col-8">
+                                <label for="First">Use more renewable energy (business)</label>
+                                <br>
+                                <br>
+                                <div id="First">
                                 </div>
-                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
+                            </div>
+                            <div class="col-4">
+                                <br>
+                                <input class="col-12" type="text" id="first" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            </div>
+                        </div>
+                        <br>
+                        <!-- Second -->
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="Second">Install more solar panels</label>
+                                <br>
+                                <br>
+                                <div id="Second">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <br>
+                                <input class="col-12" type="text" id="second" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            </div>
+                        </div>
+                        <br>
+                        <!-- Third -->
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="Third">Use more renewable energy (household)</label>
+                                <br>
+                                <br>
+                                <div id="Third">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <br>
+                                <input class="col-12" type="text" id="third" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            </div>
+                        </div>
+                        <br>
+                        <!-- fourth -->
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="Fourth">More electric cars</label>
+                                <br>
+                                <br>
+                                <div id="Fourth">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <br>
+                                <input class="col-12" type="text" id="fourth" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            </div>
+                        </div>
+                        <br>
+                        <!-- fifth -->
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="Fifth">Use public transport more</label>
+                                <br>
+                                <br>
+                                <div id="Fifth">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <br>
+                                <input class="col-12" type="text" id="fifth" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            </div>
+                        </div>
+                        <br>
+                        <!-- First -->
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="Sixth">Increase Forestation</label>
+                                <br>
+                                <br>
+                                <div id="Sixth">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <br>
+                                <input class="col-12" type="text" id="sixth" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            </div>
+                        </div>
+                        <br>
+                        <!-- Second -->
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="Seventh">Consume less meat</label>
+                                <br>
+                                <br>
+                                <div id="Seventh">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <br>
+                                <input class="col-12" type="text" id="seventh" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            </div>
+                        </div>
+                        <br>
+                        <!-- Third -->
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="Eight">Eat more fresh produce</label>
+                                <br>
+                                <br>
+                                <div id="Eight">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <br>
+                                <input class="col-12" type="text" id="eight" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            </div>
+                        </div>
+                        <br>
+                        <!-- fourth -->
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="Nineth">Eat more local produce</label>
+                                <br>
+                                <br>
+                                <div id="Nineth">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <br>
+                                <input class="col-12" type="text" id="nineth" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            </div>
+                        </div>
+                        <br>
+                        <!-- fifth -->
+<!--                                             <div class="row">
+                        <div class="col-8">
+                            <label for="Tenth">Tenth</label>
+                            <br>
+                            <br>
+                            <div id="Tenth">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <br>
+                            <input class="col-12" type="text" id="tenth" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        </div>
+                    </div>
+                    <br>
+                    <br> -->
+                    <button type="submit" class="btn btn-primary" id="helloWorld">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-10 col-12">
+                <div class="row mainRow">
+                    <div id='map_canvas' class='mapPanel col-lg-6 col-12 dropshadow'>
+                    </div>
+                    <div class="statsPanel col-lg-6 col-12">
+                        <div class="col-12 timePanel dropshadow">
+                            <div class="row">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                    </ol>
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="carousel-item active">
+                                            <img class="img-fluid" src="https://www.brisbane.qld.gov.au/sites/default/files/styles/original/public/1600x900-suburban-flooding-close_0.jpg?itok=pSlxOJt8" alt="First slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="img-fluid" src="https://www.brisbane.qld.gov.au/sites/default/files/styles/original/public/1600x900-suburban-flooding-close_0.jpg?itok=pSlxOJt8" alt="Second slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="img-fluid" src="https://www.brisbane.qld.gov.au/sites/default/files/styles/original/public/1600x900-suburban-flooding-close_0.jpg?itok=pSlxOJt8" alt="Third slide">
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropshadow infoPanel col-12">
+                            <div class="row" style="padding: 2em;">
+                                <div class="col-12">
+                                    <h1>Here you can see some Example Text</h1>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi minus quisquam perferendis suscipit fugiat quasi magnam numquam culpa sit laudantium ipsum qui, non obcaecati maiores voluptatum delectus cumque dolor tenetur.</p>
+                                    <i class="fa fa-twitter-square"></i>
+                                    <i class="fa fa-facebook-square"></i>
+                                    <i class="fa fa-camera-retro"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./src/mapbox/mapboxindex.js"></script>
     <script src="plotly-latest.min.js"></script>
     <script type="text/javascript" src="./stats.js"></script>

@@ -16,14 +16,13 @@ body {
 .sidebar {
     height: 100vh;
     position: absolute;
-    left: -300px;
     z-index: 1001;
     width: 300px;
     background-color: #fff;
-    transition: all 0.3s ease-in-out;
-    background: AliceBlue;    
+    transition: all 0.2s ease-in-out;
     font-size: 20px;
     padding: 0 10px;
+    /*top: -1000px;*/
 }
 
 .mapPanel {
@@ -32,61 +31,102 @@ body {
 }
 
 .statsPanel {
-    background: AliceBlue;
     height: 100%;
 }
 
 .MainContainer {
-    padding: 3em;
-    background-color: White;
+    padding-top: 1em;
+    padding-left: 2em;
+    padding-bottom: 2em;
+    padding-right: 2em;
+    background-color: white;
     height: 100vh;
     position: relative;
+    transition: all 0.2s ease-in-out;
 }
 
-.perspectiveGridFileTileSize {
-background: Black;
 
+.timePanel {
+    height: 50%;
+    margin-bottom: 5%;
 }
 
-.timePanel{
-  height: 50%;
-}
-
-.dropshadow .col-12 .timePanel{
-  padding:0px !important;
+.dropshadow .col-12 .timePanel {
+    padding: 0px !important;
 }
 
 .dropshadow {
     -webkit-box-shadow: -1px 1px 5px 0px rgba(42, 47, 56, 0.2);
     -moz-box-shadow: -1px 1px 5px 0px rgba(42, 47, 56, 0.2);
     box-shadow: -1px 1px 5px 0px rgba(42, 47, 56, 0.2);
+    background-color: white;
 }
 
-.carousel-inner, .carousel-item {
-  height: 100%;
-  width: 100%;
+.carousel-inner,
+.carousel-item {
+    height: 100%;
+    width: 100%;
 }
 
 .sidebar-toggle {
     position: absolute;
     top: 0;
     left: 0;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    z-index: 1001;
 }
 
 .sidebar-toggle button {
-    width: 100px;
-    height: 100px;
-}
-
-.toggled .sidebar-toggle {
-    left: 300px;
-}
-
-.toggled .sidebar {
-    left: 0; 
+    width: 50px;
+    height: 50px;
 }
 
 .container-fluid {
     padding: 0;
 }
+
+.mainRow{
+    padding-left: 2em;
+}
+.insideForm{
+    padding-left: 2em;
+}
+
+.Everything{
+    height: 100%;
+background: #000428;  /* fallback for old browsers */
+background: #E0EAFC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+@media only screen and (max-width: 992px) {
+    .FormMenu{
+        max-height: 100vh;
+        margin-bottom: -10vh;
+    }
+    .Everything{
+    height: 300vh;
+}
+    .mainRow{
+        padding-left: 0;
+    }
+    .mapPanel {
+        max-height: 50vh;
+        margin-bottom: 2em;
+        margin-top: 2em;
+        padding: 0px;
+    }
+    .timePanel{
+        max-height: 100vh;
+        margin-bottom: 2em;
+    }
+
+    .statsPanel{
+        max-height: 100vh;
+        padding: 0px;
+    }
+}
+

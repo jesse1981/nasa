@@ -4,8 +4,8 @@
     },
     "logLevel": "debug",
     "database": {
-        "host": "172.19.122.108",
-        "database": "test",
+        "host": "datacake.clbj42ssky7c.us-west-2.rds.amazonaws.com",
+        "database": "nasa_group",
         "user": "nasauser",
         "password": "nasa"
     },
