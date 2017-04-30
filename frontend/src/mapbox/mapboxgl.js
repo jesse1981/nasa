@@ -9,7 +9,7 @@ function createMapGL3d() {
         container: 'mapGL'
     });
 
-    let config = {
+    var config = {
         seaLevel: 50
     };
 
@@ -42,7 +42,7 @@ function createMapGL3d() {
         ));
     }
 
-    let smallArea = [
+    var smallArea = [
         [
             153.02141904830933,
             -27.47012516433008
@@ -69,7 +69,7 @@ function createMapGL3d() {
         ]
     ];
 
-    let bigArea = [
+    var bigArea = [
         [
             152.8809356689453,
             -27.65281758178339
@@ -230,8 +230,8 @@ function createMapGL3d() {
     });
 
     return {
-        setConfig,
-        updateSeaLevel
+        setConfig: setConfig,
+        updateSeaLevel: updateSeaLevel
     }
 }
 
