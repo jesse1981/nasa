@@ -50,13 +50,13 @@ function createFloodMapBox() {
                     },
                         [data.array.buffer]
                     );
-                    delete data.array;
+                    devare data.array;
                     tileData[data.tileUID] = dataArray;
                 },
 
-                // If a tile unload event was sent, delete the corresponding data
+                // If a tile unload event was sent, devare the corresponding data
                 tileunload: function (tileUnloadID) {
-                    delete tileData[tileUnloadID];
+                    devare tileData[tileUnloadID];
                 },
 
                 setfilter: function (elev) {
@@ -80,15 +80,15 @@ function createFloodMapBox() {
         return new Worker(URL.createObjectURL(blob));
     }
 
-    let config = {
+    var config = {
         seaLevel: 0,
         red: 66,
         green: 134,
         blue: 244
     };
 
-    let elevTilesLayer;
-    let baseLayer;
+    var elevTilesLayer;
+    var baseLayer;
 
     function setConfig(key, value) {
         if (key in config) {
@@ -135,12 +135,12 @@ function createFloodMapBox() {
         baseLayer = L.mapbox.tileLayer('mapbox.streets').addTo(map);
 
         elevTilesLayer = new L.TileLayer.Canvas({
-            unloadInvisibleTiles: true,
+            unloadInvisibvariles: true,
             attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
         });
 
         elevTilesLayer.on('tileunload', function (e) {
-            //Send tile unload data to elevWorker to delete un-needed pixel data
+            //Send tile unload data to elevWorker to devare un-needed pixel data
             elevWorker.postMessage({ 'data': e.tile._tilePoint.id, 'type': 'tileunload' });
         });
 
@@ -175,7 +175,7 @@ function createFloodMapBox() {
 
             var drawContext = canvas.getContext('2d');
 
-            // To access / delete elevTiles later
+            // To access / devare elevTiles later
             tile.id = tileUID;
 
             tileContextsElev[tileUID] = drawContext;
@@ -223,16 +223,16 @@ function createFloodMapBox() {
 
     _init();
     return {
-        setConfig,
-        update,
-        updateSeaLevel
+        setConfig: setConfig,
+        update: update,
+        updateSeaLevel: updateSeaLevel
     };
 }
 
 var floodMapBox = createFloodMapBox();
 
 // Not used
-let createGeneralGeoUtils = function () {
+var createGeneralGeoUtils = function () {
     var offsetPoint = function (p1, a, d) {
         var brng = a * (Math.PI / 180.0);
         var R = 41807040;
