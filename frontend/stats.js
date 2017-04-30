@@ -55,8 +55,8 @@ $('#helloWorld').on('click', function(event) {
             'value': data
         },
         success: function(result) {
-            floodMapBox.updateSeaLevel(parseInt(result)/100);
-            flood3dMap.updateSeaLevel(parseInt(result)/100);
+            floodMapBox.updateSeaLevel(parseInt(result)/10);
+            flood3dMap.updateSeaLevel(parseInt(result)/10);
             console.log(result);
         }
     });

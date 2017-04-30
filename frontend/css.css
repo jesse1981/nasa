@@ -14,15 +14,16 @@ body {
 }
 
 .sidebar {
-    overflow: scroll;
     height: 100vh;
     position: absolute;
     z-index: 1001;
     width: 300px;
+    overflow: scroll;
     background-color: #fff;
     transition: all 0.2s ease-in-out;
     font-size: 20px;
     padding: 0 10px;
+   
     /*top: -1000px;*/
 }
 
@@ -91,6 +92,7 @@ body {
 
 .container-fluid {
     padding: 0;
+    overflow: scroll;
 }
 
 .mainRow{

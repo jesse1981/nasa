@@ -10,7 +10,7 @@ function createMapGL3d() {
     });
 
     var config = {
-        seaLevel: 50
+        seaLevel: 0
     };
 
     function setConfig(configName, value) {
