@@ -15,8 +15,6 @@ var util = require('util'),
     _ = require('lodash'),
     app = express();
 
-var cors = requie('cors');
-
 var log = logFactory.get("app");
 var fs = require('fs');
 var parse = require('csv-parse');
@@ -25,7 +23,6 @@ var async = require('async');
 app.use(bodyParser.json({limit: '10mb'}));
 app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
 app.use(expressValidator());
-app.use(cors());
 
 app.get('/', function(req, res) {
     var query = "SELECT * FROM DATA";
@@ -52,10 +49,10 @@ app.post('/data', function(req, res) {
         result += conf.seaBaseLevel;
         console.log(result);
 
-        // res.header('Access-Control-Allow-Origin','http://localhost:8000');
-        // res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        // res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-        // res.header('Access-Control-Allow-Credentials', true);
+        res.header('Access-Control-Allow-Origin','http://localhost:8000');
+        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+        res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+        res.header('Access-Control-Allow-Credentials', true);
 
         // prepare result
         res.header('content-type','text/plain');
