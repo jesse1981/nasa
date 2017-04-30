@@ -17,24 +17,33 @@ var options = {
 
 Plotly.newPlot('myDiv', data, layout, options);
 
-$("button").click(function() {
-    $.ajax({
-        url: "http://172.19.116.27/data",
-        xhrFields: {
-            withCredentials: true
-        },
-        type: "POST",
-        crossDomain: true,
-        data: {
-            'value': 20
-        },
-        success: function(result) {
-            console.log(result);
-        }
-    });
-});
+$('#helloWorld').on('click', function(event) {
+    event.preventDefault();
 
-function helloWorld() {
+    var first = $('#first').val();
+    var second = $('#second').val();
+    var third = $('#third').val();
+    var fourth = $('#fourth').val();
+    var fifth = $('#fifth').val();
+    var sixth = $('#sixth').val();
+    var seventh = $('#seventh').val();
+    var eight = $('#eight').val();
+    var nineth = $('#nineth').val();
+    // var tenth = $('#tenth').val();
+
+    data = {
+        'first': first,
+        'second': second,
+        'third': third,
+        'fourth': fourth,
+        'fifth': fifth, 
+        'sixth': sixth, 
+        'seventh': seventh, 
+        'eight': eight,
+        'nineth': nineth,
+        // 'tenth': tenth,
+    }
+    console.log(data);
     $.ajax({
         url: "https://nasa-saibottrenham.c9users.io:8080/data",
         xhrFields: {
@@ -43,10 +52,11 @@ function helloWorld() {
         type: "POST",
         crossDomain: true,
         data: {
-            'value': 20
+            'value': data
         },
         success: function(result) {
             console.log(result);
         }
     });
-}
+     /* your code here */
+});
