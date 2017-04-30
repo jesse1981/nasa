@@ -120,7 +120,10 @@ background: linear-gradient(to bottom, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, 
 @media only screen and (max-width: 992px) {
     .FormMenu{
         max-height: 100vh;
-        margin-bottom: -10vh;
+        margin-bottom: 2em;
+    }
+    .infoPanel{
+        margin-bottom: 2em;
     }
     .Everything{
     height: 300vh;

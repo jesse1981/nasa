@@ -81,7 +81,7 @@ function createFloodMapBox() {
     }
 
     var config = {
-        seaLevel: 0,
+        seaLevel: 13,
         red: 66,
         green: 134,
         blue: 244
@@ -126,7 +126,7 @@ function createFloodMapBox() {
             worldCopyJump: true,
             doubleClickZoom: false,
             center: [-27.4698, 153.0251],
-            zoom: 12,
+            zoom: 10,
         });
 
         //var hash = L.hash(map);
