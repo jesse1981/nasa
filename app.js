@@ -4,7 +4,7 @@
 var conf = require('./config.js');
 
 var SimpleLog = require('./util/simpleLog.js');
-var db = require('./service/db.js');
+//var db = require('./service/db.js');
 var logFactory = new SimpleLog(conf.logLevel);
 
 var util = require('util'),
@@ -30,16 +30,58 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
 app.use(expressValidator());
 
 app.get('/', function(req, res) {
-    //db.bar();
-    var query = "SELECT * FROM test";
+    /*
+    var query = "SELECT * FROM DATA";
     db.query(query,function(result){
         res.setHeader('content-type',' text/json');
         res.send(JSON.stringify(result));
     });
+    */
 });
 app.post('/data', function(req, res) {
     console.log(req.body);
-    res.header('Access-Control-Allow-Origin','*');
+    var data = [
+        [
+            "Input 0",3495.122859,-805.9697776,-1435.109138,-197.709456,-197.709456,-82.2347708,3.560796237,3.560796237,3.560796237
+        ],
+        [
+            "Input 1",3467.571774,-805.969768,-1435.109139,-197.7094558,-197.7094558,-82.23477081,3.56079604,3.56079604,3.56079604
+        ],
+        [
+            "Input 2",3445.011511,-805.9699619,-1435.109212,-197.7094401,-197.7094401,-82.23477138,3.560792446,3.560792446,3.560792446
+        ],
+        [
+            "Input 3",3404.086169,-805.9732178,-1435.114799,-197.7082405,-197.7082405,-82.23481546,3.560725463,3.560725463,3.560725463
+        ],
+        [
+            "Input 4",3329.933573,-806.0322115,-1435.516312,-197.6250654,-197.6250654,-82.23798309,3.559511817,3.559511817,3.559511817
+        ],
+        [
+            "Input 5",3195.734867,-807.0718454,-1462.686943,-194.5393363,-194.5393363,-82.45233867,3.538123974,3.538123974,3.538123974
+        ]
+    ];
+    
+    console.log(data);
+    var result = 0;
+    var input = req.body;
+    
+    /*
+    db.query("SELECT * FROM main",function(rows) {
+        
+    });
+    */
+    
+    var cnt = 0;
+    for (var a in input.value) {
+        console.log("x = "+(cnt+1)+", y = "+parseInt(input.value[a])+" = "+data[parseInt(input.value[a])][(cnt+1)]);
+        result += data[parseInt(input.value[a])][(cnt+1)];
+        cnt++;
+    }
+    console.log(conf.seaBaseLevel);
+    result += conf.seaBaseLevel;
+    console.log(result)
+   
+    res.header('Access-Control-Allow-Origin','http://localhost:8000');
     
     // Request methods you wish to allow
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -51,13 +93,11 @@ app.post('/data', function(req, res) {
     // to the API (e.g. in case you use sessions)
     res.header('Access-Control-Allow-Credentials', true);
     
-    // Website you wish to allow to connect
-    res.header('content-type',' text/json');
-    var test = {
-        name: "jesse",
-        age: 35
-    };
-    res.send(JSON.stringify(test));
+    // prepare result
+    res.header('content-type','text/plain');
+    res.header('content-length',result.toString().length);
+    res.status(200);
+    res.send(result.toString());
 });
 
 //conf.http.port  = 80; //process.env.PORT;
